@@ -9,9 +9,7 @@ import Prelude
 
 import Data.Array (singleton, uncons)
 import Data.Either (Either(..))
-import Data.Generic.Rep (class Generic)
 import Data.Maybe (Maybe(..))
-import Data.Newtype (class Newtype)
 import Data.String.NonEmpty as NES
 import Data.Symbol (class IsSymbol, SProxy(..), reflectSymbol)
 import Data.These (These)
@@ -34,8 +32,6 @@ instance monoidLink :: Monoid Link where
 instance semigroupLink :: Semigroup Link where
   append (Link p1) (Link p2) = Link (p1 <> p2)
 
-derive instance newtypeLink :: Newtype Link _
-derive instance genericLink :: Generic Link _
 derive instance eqLink :: Eq Link
 
 linkToURI :: Link -> TroutURI
